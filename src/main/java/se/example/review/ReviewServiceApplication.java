@@ -16,8 +16,9 @@ public class ReviewServiceApplication {
 	public static void main(String[] args) {
 		var ctx = SpringApplication.run(ReviewServiceApplication.class, args);
 
-		String mysqlUri = ctx.getEnvironment().getProperty("spring.datasource.url");
-		LOG.info("Connected to MySQL: " + mysqlUri);
+		// String mysqlUri = ctx.getEnvironment().getProperty("spring.datasource.url");
+		// LOG.info("Connected to MySQL: " + mysqlUri);
 	}
-
 }
+
+

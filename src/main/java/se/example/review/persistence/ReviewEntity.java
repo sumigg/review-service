@@ -1,18 +1,15 @@
 
 package se.example.review.persistence;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Index;
-import jakarta.persistence.Table;
-import jakarta.persistence.Version;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Version;
+import org.springframework.data.relational.core.mapping.Table;
 
-@Entity
-@Table(name = "reviews", indexes = {
-        @Index(name = "reviews_unique_idx", unique = true, columnList = "productId,reviewId") })
+
+@Table(name = "reviews" )
 public class ReviewEntity {
 
-    @Id
+    @Id 
     private int id;
     @Version
     private int version;
@@ -26,10 +23,9 @@ public class ReviewEntity {
     public ReviewEntity() {
     }
 
-    public ReviewEntity(int id, int version, int reviewId, int productId, String author, String content,
+    public ReviewEntity(int reviewId, int productId, String author, String content,
             String subject) {
-        this.id = id;
-        this.version = version;
+   
         this.reviewId = reviewId;
         this.productId = productId;
         this.author = author;

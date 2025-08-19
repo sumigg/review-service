@@ -11,8 +11,8 @@ public class ReviewMapper {
             return null;
         }
         return new Review(
+               entity.getProductId(),
                 entity.getReviewId(),
-                entity.getProductId(),
                 entity.getAuthor(),
                 entity.getContent(),
                 entity.getSubject(),
@@ -23,8 +23,7 @@ public class ReviewMapper {
         if (review == null) {
             return null;
         }
-        return new ReviewEntity(0,
-                0,
+        return new ReviewEntity(
                 review.getReviewId(),
                 review.getProductId(),
                 review.getAuthor(),
