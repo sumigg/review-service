@@ -1,13 +1,14 @@
 package se.example.review.persistence;
 
-import java.util.List;
-
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-public interface ReviewRepository extends CrudRepository<ReviewEntity, Integer> 
+import reactor.core.publisher.Flux;
+
+
+public interface ReviewRepository extends ReactiveCrudRepository<ReviewEntity, Integer> 
 {
     @Transactional(readOnly = true)
-    List<ReviewEntity> findByProductId(int productId);
+    Flux<ReviewEntity> findByProductId(int productId);
 
 }
